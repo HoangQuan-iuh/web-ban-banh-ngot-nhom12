@@ -1,0 +1,757 @@
+/* =========================================
+   1. THIẾT LẬP CHUNG
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container-fluid {
+    width: 100%;
+}
+
+
+/* =========================================
+   2. NAVBAR
+========================================= */
+
+.navbar {
+    width: 100%;
+    min-height: 85px;
+    background-color: white !important;
+}
+
+/* Logo */
+.navbar-brand img {
+    width: 160px;
+    height: auto;
+}
+
+/* Tên thương hiệu */
+.sweete {
+    font-family: 'Gill Sans', 'Gill Sans MT',
+        Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    color: #B96F79;
+    margin-right: 60px;
+}
+
+.sweete:hover {
+    color: #a85b66;
+}
+
+/* Danh sách menu */
+.navbar-nav {
+    gap: 30px;
+}
+
+.nav-link {
+    font-size: 18px;
+    font-weight: 500;
+    color: #756961;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #B96F79 !important;
+}
+
+
+/* =========================================
+   3. DROPDOWN MENU
+========================================= */
+
+.dropdown-menu {
+    min-width: 220px;
+    padding: 12px 0;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.dropdown-item {
+    font-size: 16px;
+    padding: 12px 20px;
+    color: #756961;
+}
+
+.dropdown-item:hover {
+    background-color: #f8d7eb;
+    color: #B96F79;
+}
+
+
+/* =========================================
+   4. SEARCH BOX
+========================================= */
+
+.search-box {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 20px;
+    gap: 8px;
+}
+
+.search-box input {
+    width: 200px;
+    height: 45px;
+    font-size: 16px;
+    border-radius: 8px;
+    min-width: 0;
+}
+
+/* Bỏ khoảng cách Bootstrap me-2 nếu dùng gap */
+.search-box .form-control {
+    margin-right: 0 !important;
+}
+
+.search-box button {
+    height: 45px;
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+.btn-outline-success {
+    background-color: #B96F79;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 8px 16px;
+}
+
+.btn-outline-success:hover {
+    background-color: #a85b66;
+    color: white;
+}
+
+
+/* =========================================
+   5. GIỎ HÀNG VÀ ĐĂNG NHẬP
+========================================= */
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-left: 10px;
+    flex-shrink: 0;
+}
+
+/* Giỏ hàng */
+.cart-icon {
+    font-size: 28px;
+    color: #222;
+    text-decoration: none;
+}
+
+.cart-icon:hover {
+    color: #B96F79;
+}
+
+/* Nút đăng nhập */
+.btn-login {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #a85b66;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.btn-login:hover {
+    background-color: #756961;
+    color: white;
+}
+
+
+/* =========================================
+   6. BANNER
+========================================= */
+
+.banner {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    background-color: #f6c9eb;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+/* Nội dung giữa banner */
+.banner-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 60%;
+}
+
+.banner-content h1 {
+    font-family: Georgia, serif;
+    font-size: 52px;
+    color: #c69c6d;
+    margin-bottom: 20px;
+}
+
+.banner-content p {
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+/* Nút Đặt ngay */
+.btn-shop {
+    display: inline-block;
+    background-color: white;
+    color: #b77da1;
+    padding: 12px 45px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+
+    transition: 0.3s ease;
+}
+
+.btn-shop:hover {
+    background-color: #B96F79;
+    color: white;
+}
+
+
+/* =========================================
+   7. HAI HÌNH ẢNH BANNER
+========================================= */
+
+.banner-left,
+.banner-right {
+    position: absolute;
+    height: 85%;
+    width: auto;
+    max-width: 35%;
+    object-fit: contain;
+    z-index: 1;
+}
+
+.banner-left {
+    left: 0;
+    bottom: 10;
+}
+
+.banner-right {
+    right: 0;
+    bottom: 10;
+}
+
+
+/* =========================================
+   8. HIỆU ỨNG GỢN SÓNG
+========================================= */
+
+.wave-divider {
+    position: relative;
+    height: 30px;
+    margin-top: -30px;
+    z-index: 3;
+    line-height: 0;
+    pointer-events: none;
+}
+
+.wave-divider svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* =========================================
+   9. DANH MỤC BÁNH
+   Banner: 350px
+   Category: 175px
+========================================= */
+
+.category-section {
+    width: 100%;
+    height: 175px;
+    background-color: #e5cff5;
+
+    padding: 10px 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.category-section .container-fluid {
+    width: 100%;
+}
+
+/* Từng danh mục */
+.category-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+    text-decoration: none;
+    color: #222;
+}
+
+/* Hình tròn */
+.category-item img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e6bfe9;
+
+    transition: transform 0.3s ease;
+}
+
+.category-item img:hover {
+    transform: scale(1.08);
+}
+
+/* Tên danh mục */
+.category-item p {
+    font-size: 16px;
+    margin: 0;
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   10. OUR BEST SELLERS
+========================================= */
+
+.best-sellers {
+    width: 100%;
+    background-color: white;
+    padding: 45px 20px 60px;
+}
+
+/* Tiêu đề */
+.best-sellers h2 {
+    font-family: Georgia, serif;
+    font-size: 45px;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+/* Mô tả */
+.best-sellers p {
+    font-size: 22px;
+    margin-bottom: 0;
+}
+
+/* View All */
+.view-all {
+    color: #333;
+    text-decoration: underline;
+    font-size: 22px;
+}
+
+.view-all:hover {
+    color: #B96F79;
+}
+
+
+/* =========================================
+   11. THẺ SẢN PHẨM
+========================================= */
+
+.product-card {
+    width: 100%;
+}
+
+.product-image {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    background-color: #f8eef5;
+}
+
+
+.product-image img {
+    display: block;
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.product-image img:hover {
+    transform: scale(1.05);
+}
+
+/* Nhãn Best Seller */
+.product-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #f5c6e8;
+    padding: 6px 12px;
+    font-size: 13px;
+    color: #333;
+}
+
+/* Tên sản phẩm */
+.product-card h5 {
+    margin-top: 15px;
+    font-size: 19px;
+}
+
+/* Giá */
+.product-card .price {
+    color: #B96F79;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+/* Nút đặt mua */
+.btn-buy {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: #B96F79;
+    color: white;
+    border-radius: 25px;
+    text-decoration: none;
+}
+
+.btn-buy:hover {
+    background-color: #9e5561;
+    color: white;
+}
+
+
+/* =========================================
+   12. FOOTER
+========================================= */
+
+.footer {
+    width: 100%;
+    background-color: #f8f5f0;
+    padding: 60px 40px;
+    font-family: Arial, sans-serif;
+}
+
+/* Tiêu đề cột */
+.footer h4 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 25px;
+}
+
+/* Logo Footer */
+.footer-brand img {
+    width: 160px;
+    height: auto;
+}
+
+.footer-brand h3 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #B96F79;
+    margin: 0;
+}
+
+.footer-brand p {
+    font-size: 18px;
+    color: #756961;
+    margin: 25px 0;
+}
+
+/* Mạng xã hội */
+.footer-social {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.footer-social a {
+    font-size: 16px;
+    color: #756961;
+    text-decoration: none;
+}
+
+/* Danh sách liên kết */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 18px;
+}
+
+.footer-links a {
+    font-size: 18px;
+    color: #756961;
+    text-decoration: none;
+}
+
+/* Thông tin liên hệ */
+.footer-contact p {
+    font-size: 18px;
+    color: #756961;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+/* Hover */
+.footer a:hover {
+    color: #B96F79;
+}
+
+
+/* =========================================
+   13. RESPONSIVE - TABLET / LAPTOP
+========================================= */
+
+@media (max-width: 1400px) {
+
+    .sweete {
+        font-size: 22px;
+        margin-right: 20px;
+    }
+
+    .navbar-nav {
+        gap: 10px;
+    }
+
+    .nav-link {
+        font-size: 16px;
+    }
+
+    .search-box input {
+        width: 160px;
+    }
+
+    .user-actions {
+        gap: 15px;
+        margin-left: 10px;
+    }
+
+    .banner-content h1 {
+        font-size: 42px;
+    }
+}
+
+
+/* =========================================
+   14. RESPONSIVE - ĐIỆN THOẠI
+========================================= */
+
+@media (max-width: 768px) {
+
+    /* Navbar */
+    .navbar-brand img {
+        width: 110px;
+    }
+
+    .sweete {
+        font-size: 20px;
+        margin-right: 0;
+    }
+
+    .navbar-nav {
+        gap: 5px;
+    }
+
+    .search-box {
+        margin: 15px 0;
+        width: 100%;
+    }
+
+    .search-box input {
+        width: 100%;
+        flex: 1;
+    }
+
+    .user-actions {
+        margin: 10px 0;
+    }
+
+    /* Banner */
+    .banner {
+        height: 300px;
+    }
+
+    .banner-content {
+        max-width: 75%;
+    }
+
+    .banner-content h1 {
+        font-size: 25px;
+    }
+
+    .banner-content p {
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+
+    .btn-shop {
+        font-size: 16px;
+        padding: 10px 25px;
+    }
+
+    .banner-left,
+    .banner-right {
+        height: 45%;
+        max-width: 30%;
+    }
+
+    /* Danh mục */
+    .category-section {
+        height: auto;
+        padding: 25px 15px;
+    }
+
+    .category-item img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .category-item p {
+        font-size: 14px;
+    }
+
+    /* Best Sellers */
+    .best-sellers {
+        padding: 30px 15px;
+    }
+
+    .best-sellers h2 {
+        font-size: 25px;
+    }
+
+    .best-sellers p {
+        font-size: 16px;
+    }
+
+    .view-all {
+        font-size: 16px;
+    }
+
+    .product-image img {
+        height: 220px;
+    }
+}
+
+/* ==============================
+   FOOTER
+============================== */
+
+.footer {
+    width: 100%;
+    height: auto;
+    background-color: #f8f5f0;
+    padding: 25px 30px;
+    font-family: Arial, sans-serif;
+}
+
+/* Tiêu đề các cột */
+.footer h4 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 8px;
+}
+
+/* Logo */
+.footer-brand img {
+    width: 110px;
+    height: auto;
+}
+
+.footer-brand h3 {
+    font-size: 20px;
+    color: #B96F79;
+    margin: 0;
+}
+
+/* Slogan */
+.footer-brand p {
+    font-size: 14px;
+    color: #756961;
+    line-height: 1.2;
+    margin: 6px 0;
+}
+
+/* Mạng xã hội */
+.footer-social {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.footer-social a {
+    font-size: 14px;
+    color: #756961;
+    text-decoration: none;
+}
+
+/* Danh sách liên kết */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 4px;
+}
+
+.footer-links a {
+    font-size: 14px;
+    line-height: 1.2;
+    color: #756961;
+    text-decoration: none;
+}
+
+/* Thông tin liên hệ */
+.footer-contact p {
+    font-size: 14px;
+    color: #756961;
+    line-height: 1.2;
+    margin-bottom: 4px;
+}
+
+/* Hiệu ứng hover */
+.footer a:hover {
+    color: #B96F79;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer {
+        padding: 20px 15px;
+    }
+
+    .footer h4 {
+        font-size: 17px;
+    }
+
+    .footer-links a,
+    .footer-contact p {
+        font-size: 13px;
+    }
+}
