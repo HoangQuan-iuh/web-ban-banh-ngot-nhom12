@@ -1,0 +1,324 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách bánh - SweetCake</title>
+
+    <link rel="stylesheet" href="../../CSS/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../../CSS/styles.css">
+
+    <script src="../../JS/bootstrap.bundle.min.js"></script>
+
+    <style>
+        body {
+            background-color: #fffaf7;
+        }
+
+        .page-title {
+            color: #8b4b55;
+            text-align: center;
+            margin: 35px 0;
+            font-weight: bold;
+        }
+
+        .product-card {
+            height: 100%;
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .product-card .card-body {
+            text-align: center;
+        }
+
+        .product-name {
+            color: #633b40;
+            font-weight: bold;
+        }
+
+        .product-price {
+            color: #d45b70;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .btn-detail {
+            background-color: #d98291;
+            color: white;
+            border: none;
+        }
+
+        .btn-detail:hover {
+            background-color: #bd6273;
+            color: white;
+        }
+
+        .filter-btn {
+            margin: 5px;
+        }
+
+        .search-box {
+            max-width: 400px;
+            margin: 0 auto 25px;
+        }
+    </style>
+
+    <script>
+        // Lọc sản phẩm theo loại bánh
+        function filterProduct(category) {
+            let products = document.querySelectorAll('.product-item');
+
+            products.forEach(function(product) {
+                if (category === 'all' || product.dataset.category === category) {
+                    product.style.display = '';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+
+        // Tìm kiếm sản phẩm
+        document.getElementById('searchInput').addEventListener('input', function() {
+            let keyword = this.value.toLowerCase();
+            let products = document.querySelectorAll('.product-item');
+
+            products.forEach(function(product) {
+                let name = product.querySelector('.product-name').innerText.toLowerCase();
+
+                if (name.includes(keyword)) {
+                    product.style.display = '';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        });
+
+        // Sắp xếp sản phẩm theo giá
+        document.getElementById('sortPrice').addEventListener('change', function() {
+            let productList = document.getElementById('productList');
+            let products = Array.from(document.querySelectorAll('.product-item'));
+
+            products.sort(function(a, b) {
+                let priceA = Number(a.dataset.price);
+                let priceB = Number(b.dataset.price);
+
+                if (this.value === 'asc') {
+                    return priceA - priceB;
+                } else {
+                    return priceB - priceA;
+                }
+            }.bind(this));
+
+            products.forEach(function(product) {
+                productList.appendChild(product);
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="../index.html">
+                    SweetCake
+                </a>
+
+                <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarMenu">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html">Trang chủ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="danh-sach-banh.html">Sản phẩm</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html#gioithieu">Giới thiệu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html#lienhe">Liên hệ</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- DANH SÁCH SẢN PHẨM -->
+    <main class="container py-4">
+
+        <h2 class="page-title">DANH SÁCH BÁNH</h2>
+
+        <!-- TÌM KIẾM -->
+        <div class="search-box">
+            <input type="text" id="searchInput" class="form-control"
+                placeholder="Tìm kiếm bánh...">
+        </div>
+
+        <!-- LỌC SẢN PHẨM -->
+        <div class="text-center mb-4">
+            <button class="btn btn-outline-danger filter-btn" onclick="filterProduct('all')">
+                Tất cả
+            </button>
+            <button class="btn btn-outline-danger filter-btn" onclick="filterProduct('banhkem')">
+                Bánh kem
+            </button>
+            <button class="btn btn-outline-danger filter-btn" onclick="filterProduct('cupcake')">
+                Cupcake
+            </button>
+            <button class="btn btn-outline-danger filter-btn" onclick="filterProduct('banhkhac')">
+                Bánh khác
+            </button>
+        </div>
+
+        <!-- SẮP XẾP -->
+        <div class="d-flex justify-content-end mb-3">
+            <select id="sortPrice" class="form-select w-auto">
+                <option value="">Sắp xếp giá</option>
+                <option value="asc">Giá thấp đến cao</option>
+                <option value="desc">Giá cao đến thấp</option>
+            </select>
+        </div>
+
+        <!-- GRID SẢN PHẨM -->
+        <div class="row g-4" id="productList">
+
+            <div class="col-6 col-md-4 col-xl-3 product-item" data-category="banhkem" data-price="450000">
+                <div class="card product-card">
+                    <img src="../../img/birthday.jfif" alt="Pink Celebration Cake">
+                    <div class="card-body">
+                        <h5 class="product-name">Pink Celebration Cake</h5>
+                        <p class="product-price">450.000đ</p>
+                        <a href="chi-tiet-banh.html" class="btn btn-detail w-100">
+                            Xem chi tiết
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-xl-3 product-item" data-category="banhkem" data-price="390000">
+                <div class="card product-card">
+                    <img src="../../img/cakesale.jfif" alt="Confetti Cake">
+                    <div class="card-body">
+                        <h5 class="product-name">Confetti Cake</h5>
+                        <p class="product-price">390.000đ</p>
+                        <a href="chi-tiet-banh.html" class="btn btn-detail w-100">
+                            Xem chi tiết
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-xl-3 product-item" data-category="cupcake" data-price="250000">
+                <div class="card product-card">
+                    <img src="../../img/cupcakebox.jfif" alt="Cupcake Box">
+                    <div class="card-body">
+                        <h5 class="product-name">Cupcake Box</h5>
+                        <p class="product-price">250.000đ</p>
+                        <a href="chi-tiet-banh.html" class="btn btn-detail w-100">
+                            Xem chi tiết
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-xl-3 product-item" data-category="banhkem" data-price="420000">
+                <div class="card product-card">
+                    <img src="../../img/rosecake.jfif" alt="Rose Cake">
+                    <div class="card-body">
+                        <h5 class="product-name">Rose Cake</h5>
+                        <p class="product-price">420.000đ</p>
+                        <a href="chi-tiet-banh.html" class="btn btn-detail w-100">
+                            Xem chi tiết
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-xl-3 product-item" data-category="banhkem" data-price="350000">
+                <div class="card product-card">
+                    <img src="../../img/cake.jpg" alt="Classic Cream Cake">
+                    <div class="card-body">
+                        <h5 class="product-name">Classic Cream Cake</h5>
+                        <p class="product-price">350.000đ</p>
+                        <a href="chi-tiet-banh.html" class="btn btn-detail w-100">
+                            Xem chi tiết
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-xl-3 product-item" data-category="cupcake" data-price="45000">
+                <div class="card product-card">
+                    <img src="../../img/cupcake.jfif" alt="Chocolate Cupcake">
+                    <div class="card-body">
+                        <h5 class="product-name">Chocolate Cupcake</h5>
+                        <p class="product-price">45.000đ</p>
+                        <a href="chi-tiet-banh.html" class="btn btn-detail w-100">
+                            Xem chi tiết
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-xl-3 product-item" data-category="banhkhac" data-price="80000">
+                <div class="card product-card">
+                    <img src="../../img/cookies.jfif" alt="Chocolate Cookies">
+                    <div class="card-body">
+                        <h5 class="product-name">Chocolate Cookies</h5>
+                        <p class="product-price">80.000đ</p>
+                        <a href="chi-tiet-banh.html" class="btn btn-detail w-100">
+                            Xem chi tiết
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-xl-3 product-item" data-category="banhkhac" data-price="60000">
+                <div class="card product-card">
+                    <img src="../../img/cakepop.png" alt="Rainbow Cake Pops">
+                    <div class="card-body">
+                        <h5 class="product-name">Rainbow Cake Pops</h5>
+                        <p class="product-price">60.000đ</p>
+                        <a href="chi-tiet-banh.html" class="btn btn-detail w-100">
+                            Xem chi tiết
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <p class="mb-1">SweetCake - Tiệm bánh ngọt</p>
+        <p class="mb-0">Mang đến những chiếc bánh thơm ngon và chất lượng.</p>
+    </footer>
+    
+</body>
+</html>
