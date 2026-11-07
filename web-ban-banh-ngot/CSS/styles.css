@@ -1,6 +1,10 @@
-/* =========================================
-   1. THIẾT LẬP CHUNG
-========================================= */
+:root {
+    --pink: #B96F79;
+    --pink-dark: #a85b66;
+    --brown: #756961;
+    --cream: #F8F1E9;
+    --lavender: #e5cff5;
+}
 
 * {
     box-sizing: border-box;
@@ -15,38 +19,30 @@ body {
     width: 100%;
 }
 
-
-/* =========================================
-   2. NAVBAR
-========================================= */
-
+/* NAVBAR */
 .navbar {
     width: 100%;
     min-height: 85px;
-    background-color: white !important;
+    background: white !important;
 }
 
-/* Logo */
 .navbar-brand img {
     width: 160px;
     height: auto;
 }
 
-/* Tên thương hiệu */
 .sweete {
-    font-family: 'Gill Sans', 'Gill Sans MT',
-        Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 25px;
     font-weight: bold;
-    color: #B96F79;
+    color: var(--pink);
     margin-right: 60px;
 }
 
 .sweete:hover {
-    color: #a85b66;
+    color: var(--pink-dark);
 }
 
-/* Danh sách menu */
 .navbar-nav {
     gap: 30px;
 }
@@ -54,59 +50,48 @@ body {
 .nav-link {
     font-size: 18px;
     font-weight: 500;
-    color: #756961;
+    color: var(--brown);
 }
 
 .nav-link:hover,
 .nav-link.active {
-    color: #B96F79 !important;
+    color: var(--pink) !important;
 }
-
-
-/* =========================================
-   3. DROPDOWN MENU
-========================================= */
 
 .dropdown-menu {
     min-width: 220px;
     padding: 12px 0;
-    border-radius: 8px;
     border: 1px solid #eee;
+    border-radius: 8px;
 }
 
 .dropdown-item {
     font-size: 16px;
     padding: 12px 20px;
-    color: #756961;
+    color: var(--brown);
 }
 
 .dropdown-item:hover {
-    background-color: #f8d7eb;
-    color: #B96F79;
+    background: #f8d7eb;
+    color: var(--pink);
 }
-
-
-/* =========================================
-   4. SEARCH BOX
-========================================= */
 
 .search-box {
     display: flex;
     align-items: center;
+    gap: 8px;
     margin-left: auto;
     margin-right: 20px;
-    gap: 8px;
 }
 
 .search-box input {
     width: 200px;
+    min-width: 0;
     height: 45px;
     font-size: 16px;
     border-radius: 8px;
-    min-width: 0;
 }
 
-/* Bỏ khoảng cách Bootstrap me-2 nếu dùng gap */
 .search-box .form-control {
     margin-right: 0 !important;
 }
@@ -118,22 +103,18 @@ body {
 }
 
 .btn-outline-success {
-    background-color: #B96F79;
+    background: var(--pink);
     color: white;
     border: none;
     border-radius: 12px;
     padding: 8px 16px;
 }
 
-.btn-outline-success:hover {
-    background-color: #a85b66;
+.btn-outline-success:hover,
+.btn-outline-success:focus {
+    background: var(--pink-dark);
     color: white;
 }
-
-
-/* =========================================
-   5. GIỎ HÀNG VÀ ĐĂNG NHẬP
-========================================= */
 
 .user-actions {
     display: flex;
@@ -143,7 +124,6 @@ body {
     flex-shrink: 0;
 }
 
-/* Giỏ hàng */
 .cart-icon {
     font-size: 28px;
     color: #222;
@@ -151,17 +131,16 @@ body {
 }
 
 .cart-icon:hover {
-    color: #B96F79;
+    color: var(--pink);
 }
 
-/* Nút đăng nhập */
 .btn-login {
     display: flex;
     align-items: center;
     gap: 12px;
-    background-color: #a85b66;
-    color: white;
     padding: 8px 16px;
+    background: var(--pink-dark);
+    color: white;
     border-radius: 12px;
     text-decoration: none;
     font-size: 16px;
@@ -170,34 +149,27 @@ body {
 }
 
 .btn-login:hover {
-    background-color: #756961;
+    background: var(--brown);
     color: white;
 }
 
-
-/* =========================================
-   6. BANNER
-========================================= */
-
+/* BANNER */
 .banner {
     position: relative;
     width: 100%;
     height: 350px;
-    background-color: #f6c9eb;
-
+    background: #f6c9eb;
     display: flex;
-    justify-content: center;
     align-items: center;
-
+    justify-content: center;
     overflow: hidden;
 }
 
-/* Nội dung giữa banner */
 .banner-content {
     position: relative;
     z-index: 2;
-    text-align: center;
     max-width: 60%;
+    text-align: center;
 }
 
 .banner-content h1 {
@@ -213,33 +185,26 @@ body {
     margin-bottom: 25px;
 }
 
-/* Nút Đặt ngay */
 .btn-shop {
     display: inline-block;
-    background-color: white;
-    color: #b77da1;
     padding: 12px 45px;
+    background: white;
+    color: #b77da1;
     border-radius: 30px;
     text-decoration: none;
     font-size: 25px;
-    font-family: Arial, Helvetica, sans-serif;
-
-    transition: 0.3s ease;
+    transition: background .3s, color .3s;
 }
 
 .btn-shop:hover {
-    background-color: #B96F79;
+    background: var(--pink);
     color: white;
 }
-
-
-/* =========================================
-   7. HAI HÌNH ẢNH BANNER
-========================================= */
 
 .banner-left,
 .banner-right {
     position: absolute;
+    bottom: 10px;
     height: 85%;
     width: auto;
     max-width: 35%;
@@ -249,19 +214,16 @@ body {
 
 .banner-left {
     left: 0;
-    bottom: 10;
+    bottom: 20px;
+
 }
 
 .banner-right {
     right: 0;
-    bottom: 10;
+    bottom: 20px;
 }
 
-
-/* =========================================
-   8. HIỆU ỨNG GỢN SÓNG
-========================================= */
-
+/* DUONG SONG: SVG hien tai co 3 dinh song lon */
 .wave-divider {
     position: relative;
     height: 30px;
@@ -277,102 +239,124 @@ body {
     height: 100%;
 }
 
-/* =========================================
-   9. DANH MỤC BÁNH
-   Banner: 350px
-   Category: 175px
-========================================= */
-
+/* DANH MUC */
 .category-section {
     width: 100%;
     height: 175px;
-    background-color: #e5cff5;
-
     padding: 10px 40px;
-
+    background: var(--lavender);
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 }
 
 .category-section .container-fluid {
     width: 100%;
 }
 
-/* Từng danh mục */
 .category-item {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     gap: 8px;
-    text-decoration: none;
     color: #222;
+    text-decoration: none;
 }
 
-/* Hình tròn */
 .category-item img {
     width: 120px;
     height: 120px;
+    border: 2px solid #e6bfe9;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid #e6bfe9;
-
-    transition: transform 0.3s ease;
+    transition: transform .3s ease;
 }
 
-.category-item img:hover {
+.category-item:hover img {
     transform: scale(1.08);
 }
 
-/* Tên danh mục */
 .category-item p {
     font-size: 16px;
     margin: 0;
     white-space: nowrap;
 }
 
-
-/* =========================================
-   10. OUR BEST SELLERS
-========================================= */
-
+/* BEST SELLERS - CREAM MINIMALIST */
 .best-sellers {
     width: 100%;
-    background-color: white;
-    padding: 45px 20px 60px;
+    background: white;
+    padding: 40px 20px 60px;
 }
 
-/* Tiêu đề */
-.best-sellers h2 {
-    font-family: Georgia, serif;
-    font-size: 45px;
+.best-sellers-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    background: var(--cream);
+    border-radius: 16px;
+    padding: 30px 35px;
+    margin-bottom: 30px;
+}
+
+.section-label {
+    display: inline-block;
     margin-bottom: 10px;
-    color: #222;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--pink);
 }
 
-/* Mô tả */
-.best-sellers p {
-    font-size: 22px;
-    margin-bottom: 0;
+.best-sellers-header h2 {
+    font-family: Georgia, serif;
+    font-size: 42px;
+    font-weight: 500;
+    color: #3B2C2C;
+    margin-bottom: 10px;
 }
 
-/* View All */
-.view-all {
-    color: #333;
-    text-decoration: underline;
-    font-size: 22px;
+.best-sellers-header p {
+    font-size: 18px;
+    color: var(--brown);
+    line-height: 1.5;
+    margin: 0;
 }
 
-.view-all:hover {
-    color: #B96F79;
+.best-sellers-header .view-all {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 22px;
+    background: white;
+    color: var(--pink-dark);
+    border: 1px solid #E8CDD3;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background .3s, color .3s, transform .3s;
 }
 
+.best-sellers-header .view-all:hover {
+    background: var(--pink);
+    color: white;
+    border-color: var(--pink);
+    transform: translateY(-2px);
+}
 
-/* =========================================
-   11. THẺ SẢN PHẨM
-========================================= */
+.best-sellers-header .view-all i {
+    font-size: 18px;
+    transition: transform .3s;
+}
+
+.best-sellers-header .view-all:hover i {
+    transform: translateX(4px);
+}
 
 .product-card {
     width: 100%;
@@ -381,117 +365,106 @@ body {
 .product-image {
     position: relative;
     width: 100%;
-    height: 280px;
+    height: 220px;
     overflow: hidden;
-    background-color: #f8eef5;
+    border-radius: 15px;
+    background: #f8eef5;
 }
-
 
 .product-image img {
     display: block;
     width: 100%;
-    height: 350px;
+    height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: transform .3s ease;
 }
 
-.product-image img:hover {
+.product-image:hover img {
     transform: scale(1.05);
 }
 
-/* Nhãn Best Seller */
 .product-badge {
     position: absolute;
     top: 0;
     right: 0;
-    background-color: #f5c6e8;
     padding: 6px 12px;
-    font-size: 13px;
+    background: #f5c6e8;
     color: #333;
+    font-size: 13px;
 }
 
-/* Tên sản phẩm */
 .product-card h5 {
     margin-top: 15px;
     font-size: 19px;
 }
 
-/* Giá */
 .product-card .price {
-    color: #B96F79;
+    color: var(--pink);
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 12px;
 }
 
-/* Nút đặt mua */
 .btn-buy {
     display: inline-block;
     padding: 10px 25px;
-    background-color: #B96F79;
+    background: var(--pink);
     color: white;
     border-radius: 25px;
     text-decoration: none;
 }
 
 .btn-buy:hover {
-    background-color: #9e5561;
+    background: #9e5561;
     color: white;
 }
 
-
-/* =========================================
-   12. FOOTER
-========================================= */
-
+/* FOOTER GON - KHONG LAP CSS */
 .footer {
     width: 100%;
-    background-color: #f8f5f0;
-    padding: 60px 40px;
+    height: auto;
+    padding: 25px 30px;
+    background: #f8f5f0;
     font-family: Arial, sans-serif;
 }
 
-/* Tiêu đề cột */
 .footer h4 {
-    font-size: 22px;
+    font-size: 18px;
     font-weight: bold;
     color: #222;
-    margin-bottom: 25px;
+    margin-bottom: 8px;
 }
 
-/* Logo Footer */
 .footer-brand img {
-    width: 160px;
+    width: 110px;
     height: auto;
 }
 
 .footer-brand h3 {
-    font-size: 24px;
-    font-weight: bold;
-    color: #B96F79;
+    font-size: 20px;
+    color: var(--pink);
     margin: 0;
 }
 
 .footer-brand p {
-    font-size: 18px;
-    color: #756961;
-    margin: 25px 0;
+    font-size: 14px;
+    color: var(--brown);
+    line-height: 1.2;
+    margin: 6px 0;
 }
 
-/* Mạng xã hội */
 .footer-social {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 10px;
 }
 
 .footer-social a {
-    font-size: 16px;
-    color: #756961;
+    font-size: 14px;
+    color: var(--brown);
     text-decoration: none;
 }
 
-/* Danh sách liên kết */
 .footer-links {
     list-style: none;
     padding: 0;
@@ -499,35 +472,29 @@ body {
 }
 
 .footer-links li {
-    margin-bottom: 18px;
+    margin-bottom: 4px;
 }
 
 .footer-links a {
-    font-size: 18px;
-    color: #756961;
+    font-size: 14px;
+    line-height: 1.2;
+    color: var(--brown);
     text-decoration: none;
 }
 
-/* Thông tin liên hệ */
 .footer-contact p {
-    font-size: 18px;
-    color: #756961;
-    line-height: 1.6;
-    margin-bottom: 12px;
+    font-size: 14px;
+    line-height: 1.2;
+    color: var(--brown);
+    margin-bottom: 4px;
 }
 
-/* Hover */
 .footer a:hover {
-    color: #B96F79;
+    color: var(--pink);
 }
 
-
-/* =========================================
-   13. RESPONSIVE - TABLET / LAPTOP
-========================================= */
-
+/* TABLET / LAPTOP */
 @media (max-width: 1400px) {
-
     .sweete {
         font-size: 22px;
         margin-right: 20px;
@@ -547,7 +514,6 @@ body {
 
     .user-actions {
         gap: 15px;
-        margin-left: 10px;
     }
 
     .banner-content h1 {
@@ -555,14 +521,8 @@ body {
     }
 }
 
-
-/* =========================================
-   14. RESPONSIVE - ĐIỆN THOẠI
-========================================= */
-
+/* MOBILE */
 @media (max-width: 768px) {
-
-    /* Navbar */
     .navbar-brand img {
         width: 110px;
     }
@@ -590,7 +550,6 @@ body {
         margin: 10px 0;
     }
 
-    /* Banner */
     .banner {
         height: 300px;
     }
@@ -619,7 +578,6 @@ body {
         max-width: 30%;
     }
 
-    /* Danh mục */
     .category-section {
         height: auto;
         padding: 25px 15px;
@@ -634,114 +592,46 @@ body {
         font-size: 14px;
     }
 
-    /* Best Sellers */
     .best-sellers {
         padding: 30px 15px;
     }
 
-    .best-sellers h2 {
-        font-size: 25px;
+    .best-sellers-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 22px 20px;
+        gap: 18px;
     }
 
-    .best-sellers p {
+    .section-label {
+        font-size: 11px;
+    }
+
+    .best-sellers-header h2 {
+        font-size: 30px;
+    }
+
+    .best-sellers-header p {
+        font-size: 14px;
+    }
+
+    .best-sellers-header .view-all {
+        padding: 10px 18px;
+        font-size: 14px;
+    }
+
+    .product-image {
+        height: 180px;
+    }
+
+    .product-card h5 {
         font-size: 16px;
     }
 
-    .view-all {
+    .product-card .price {
         font-size: 16px;
     }
 
-    .product-image img {
-        height: 220px;
-    }
-}
-
-/* ==============================
-   FOOTER
-============================== */
-
-.footer {
-    width: 100%;
-    height: auto;
-    background-color: #f8f5f0;
-    padding: 25px 30px;
-    font-family: Arial, sans-serif;
-}
-
-/* Tiêu đề các cột */
-.footer h4 {
-    font-size: 18px;
-    font-weight: bold;
-    color: #222;
-    margin-bottom: 8px;
-}
-
-/* Logo */
-.footer-brand img {
-    width: 110px;
-    height: auto;
-}
-
-.footer-brand h3 {
-    font-size: 20px;
-    color: #B96F79;
-    margin: 0;
-}
-
-/* Slogan */
-.footer-brand p {
-    font-size: 14px;
-    color: #756961;
-    line-height: 1.2;
-    margin: 6px 0;
-}
-
-/* Mạng xã hội */
-.footer-social {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.footer-social a {
-    font-size: 14px;
-    color: #756961;
-    text-decoration: none;
-}
-
-/* Danh sách liên kết */
-.footer-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.footer-links li {
-    margin-bottom: 4px;
-}
-
-.footer-links a {
-    font-size: 14px;
-    line-height: 1.2;
-    color: #756961;
-    text-decoration: none;
-}
-
-/* Thông tin liên hệ */
-.footer-contact p {
-    font-size: 14px;
-    color: #756961;
-    line-height: 1.2;
-    margin-bottom: 4px;
-}
-
-/* Hiệu ứng hover */
-.footer a:hover {
-    color: #B96F79;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
     .footer {
         padding: 20px 15px;
     }
@@ -753,5 +643,39 @@ body {
     .footer-links a,
     .footer-contact p {
         font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-content {
+        max-width: 82%;
+    }
+
+    .banner-content h1 {
+        font-size: 22px;
+    }
+
+    .banner-left,
+    .banner-right {
+        opacity: .75;
+        max-width: 25%;
+    }
+
+    .category-section {
+        padding: 22px 8px;
+    }
+
+    .category-item img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .product-image {
+        height: 150px;
+    }
+
+    .best-sellers .container-fluid {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
     }
 }
