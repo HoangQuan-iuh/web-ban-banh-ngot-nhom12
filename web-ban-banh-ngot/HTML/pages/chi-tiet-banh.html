@@ -1,347 +1,285 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chi tiết bánh - SweetCake</title>
 
-    <link href="CSS/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="CSS/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="../../CSS/bootstrap.min.css">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-        <div class="container">
-            <a class="navbar-brand logo" href="index.html">SweetCake</a>
+    <link rel="stylesheet" href="../../CSS/styles.css">
 
-            <button class="navbar-toggler" type="button"
-                    data-bs-toggle="collapse" data-bs-target="#menu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <script src="../../JS/bootstrap.bundle.min.js"></script>
 
-            <div class="collapse navbar-collapse" id="menu">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Trang chủ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="danh-sach-banh.html">Sản phẩm</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Giới thiệu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Liên hệ</a>
-                    </li>
-                </ul>
+    <style>
+        body {
+            background-color: #fffaf7;
+        }
 
-                <a href="#" class="btn btn-pink ms-lg-3">Đăng nhập</a>
-            </div>
-        </div>
-    </nav>
+        .product-detail {
+            background-color: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 40px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
 
-    <div class="container mt-4">
-        <p>
-            <a href="index.html" class="text-decoration-none">Trang chủ</a>
-            /
-            <a href="danh-sach-banh.html" class="text-decoration-none">Sản phẩm</a>
-            /
-            <span id="duongDan">Chi tiết bánh</span>
-        </p>
-    </div>
+        .product-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
 
-    <div class="container my-4">
-        <div class="row g-4">
+        .product-title {
+            color: #8b4b55;
+            font-weight: bold;
+        }
 
-            <div class="col-md-6">
-                <div class="detail-image">
-                    <img id="anhBanh"
-                         src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=80"
-                         class="img-fluid rounded" alt="Bánh">
-                </div>
-            </div>
+        .product-price {
+            color: #d45b70;
+            font-size: 26px;
+            font-weight: bold;
+        }
 
-            <div class="col-md-6">
-                <h2 id="tenBanh">Bánh kem dâu tây</h2>
+        .btn-cart {
+            background-color: #d98291;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+        }
 
-                <p class="rating">
-                    <span id="saoBanh">★★★★★</span>
-                    <span id="danhGiaNgan">(4.8) | Đã bán 120+</span>
-                </p>
+        .btn-cart:hover {
+            background-color: #bd6273;
+            color: white;
+        }
 
-                <h3 class="price" id="giaBanh">180.000đ</h3>
+        .quantity-box {
+            width: 130px;
+        }
 
-                <p id="moTaNgan"></p>
+        .nav-tabs .nav-link {
+            color: #8b4b55;
+        }
 
-                <hr>
+        .nav-tabs .nav-link.active {
+            color: #d45b70;
+            font-weight: bold;
+        }
 
-                <h5>Thành phần</h5>
-                <p id="thanhPhanNgan"></p>
-
-                <h5>Kích thước</h5>
-                <select class="form-select mb-3" id="kichThuoc">
-                    <option value="0">Size 16cm</option>
-                    <option value="1">Size 20cm</option>
-                    <option value="2">Size 24cm</option>
-                </select>
-
-                <h5>Số lượng</h5>
-                <div class="d-flex align-items-center gap-3 mb-4">
-                    <button type="button" class="btn btn-outline-secondary"
-                            onclick="thayDoiSoLuong(-1)">-</button>
-
-                    <span id="soLuong">1</span>
-
-                    <button type="button" class="btn btn-outline-secondary"
-                            onclick="thayDoiSoLuong(1)">+</button>
-                </div>
-
-                <h4 class="mb-3">
-                    Tổng tiền:
-                    <span class="price" id="tongTien">180.000đ</span>
-                </h4>
-
-                <button type="button" class="btn btn-pink w-100 py-3"
-                        onclick="themVaoGioHang()">
-                    Thêm vào giỏ hàng
-                </button>
-
-                <p id="thongBao" class="mt-3 text-success"></p>
-            </div>
-        </div>
-
-        <div class="card mt-5">
-            <div class="card-body">
-                <ul class="nav nav-tabs" role="tablist">
-                    <li class="nav-item">
-                        <button class="nav-link active" data-bs-toggle="tab"
-                                data-bs-target="#moTa" type="button">
-                            Mô tả
-                        </button>
-                    </li>
-
-                    <li class="nav-item">
-                        <button class="nav-link" data-bs-toggle="tab"
-                                data-bs-target="#thanhPhan" type="button">
-                            Thành phần
-                        </button>
-                    </li>
-
-                    <li class="nav-item">
-                        <button class="nav-link" data-bs-toggle="tab"
-                                data-bs-target="#danhGia" type="button">
-                            Đánh giá
-                        </button>
-                    </li>
-                </ul>
-
-                <div class="tab-content p-3">
-                    <div class="tab-pane fade show active" id="moTa">
-                        <h5 id="tenBanhMoTa">Bánh kem dâu tây SweetCake</h5>
-                        <p id="moTaChiTiet"></p>
-                    </div>
-
-                    <div class="tab-pane fade" id="thanhPhan">
-                        <h5>Thành phần bánh</h5>
-                        <p id="thanhPhanChiTiet"></p>
-                    </div>
-
-                    <div class="tab-pane fade" id="danhGia">
-                        <h5>Đánh giá của khách hàng</h5>
-                        <p id="danhGia1"></p>
-                        <p id="danhGia2"></p>
-                        <p id="danhGia3"></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="text-center mt-4">
-            <a href="danh-sach-banh.html" class="btn btn-outline-secondary">
-                Quay lại danh sách bánh
-            </a>
-        </div>
-    </div>
-
-    <footer class="footer mt-5">
-        <div class="container text-center py-4">
-            <h4 class="logo">SweetCake</h4>
-            <p>Ngọt ngào từng khoảnh khắc</p>
-            <p>Liên hệ: 0123 456 789 | support@sweetcake.vn</p>
-            <small>© 2026 SweetCake. Tất cả quyền được bảo lưu.</small>
-        </div>
-    </footer>
+        .detail-content {
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #dee2e6;
+            border-top: none;
+        }
+    </style>
 
     <script>
-        let soLuong = 1;
-        let banhHienTai;
+        // Thay đổi số lượng bánh
+        function changeQuantity(number) {
+            let quantity = document.getElementById('quantity');
+            let currentQuantity = Number(quantity.value);
 
-        let danhSachBanh = {
-            1: {
-                ten: "Bánh kem dâu tây",
-                gia: [180000, 250000, 350000],
-                danhGia: " (4.8) | Đã bán 120+",
-                moTa: "Bánh kem dâu tây có lớp kem tươi mềm mịn, cốt bánh bông lan thơm ngon và dâu tây tươi mọng nước. Bánh phù hợp cho sinh nhật, kỷ niệm và làm quà tặng.",
-                thanhPhan: "Bột mì, trứng gà, sữa tươi, kem tươi, đường và dâu tây tươi.",
-                anh: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=80",
-                danhGia1: "★★★★★ Nguyễn Thị Mai: Bánh ngon, kem mềm, dâu tươi.",
-                danhGia2: "★★★★★ Trần Văn Hùng: Bánh đẹp, giao hàng nhanh.",
-                danhGia3: "★★★★☆ Lê Thị Thảo: Bánh thơm ngon, vừa miệng."
-            },
+            currentQuantity += number;
 
-            2: {
-                ten: "Bánh socola",
-                gia: [160000, 230000, 330000],
-                danhGia: " (4.6) | Đã bán 95+",
-                moTa: "Bánh socola có cốt bánh mềm xốp, vị cacao đậm đà và lớp kem socola béo mịn. Đây là lựa chọn phù hợp cho người yêu thích vị socola.",
-                thanhPhan: "Bột mì, trứng gà, cacao, socola, sữa tươi, kem tươi và đường.",
-                anh: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=900&q=80",
-                danhGia1: "★★★★★ Minh Anh: Socola thơm, bánh mềm.",
-                danhGia2: "★★★★☆ Quốc Bảo: Vị bánh đậm đà.",
-                danhGia3: "★★★★★ Thu Hà: Bánh đẹp và ngon."
-            },
-
-            3: {
-                ten: "Bánh matcha",
-                gia: [150000, 220000, 320000],
-                danhGia: " (4.7) | Đã bán 80+",
-                moTa: "Bánh matcha thơm vị trà xanh, có cốt bánh mềm mịn kết hợp với lớp kem béo nhẹ. Bánh có vị ngọt vừa phải và hương trà xanh đặc trưng.",
-                thanhPhan: "Bột mì, trứng gà, bột matcha, sữa tươi, kem tươi và đường.",
-                anh: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=900&q=80",
-                danhGia1: "★★★★★ Ngọc Mai: Vị trà xanh thơm.",
-                danhGia2: "★★★★☆ Thanh Tâm: Bánh mềm, không quá ngọt.",
-                danhGia3: "★★★★★ Hải Yến: Hình thức đẹp."
-            },
-
-            4: {
-                ten: "Bánh red velvet",
-                gia: [170000, 240000, 340000],
-                danhGia: " (4.5) | Đã bán 70+",
-                moTa: "Bánh red velvet nổi bật với màu đỏ bắt mắt, cốt bánh mềm và lớp kem phô mai béo nhẹ. Bánh thích hợp cho các dịp đặc biệt.",
-                thanhPhan: "Bột mì, trứng gà, cacao, sữa tươi, kem phô mai và đường.",
-                anh: "https://images.unsplash.com/photo-1586788680434-30d324b2d46f?auto=format&fit=crop&w=900&q=80",
-                danhGia1: "★★★★★ Bảo Trân: Bánh đẹp, kem ngon.",
-                danhGia2: "★★★★☆ Hoàng Nam: Vị bánh vừa miệng.",
-                danhGia3: "★★★★★ Kim Ngân: Rất thích lớp kem phô mai."
-            },
-
-            5: {
-                ten: "Bánh phô mai",
-                gia: [160000, 230000, 330000],
-                danhGia: " (4.6) | Đã bán 65+",
-                moTa: "Bánh phô mai có kết cấu mềm mịn, vị béo thơm và độ ngọt hài hòa. Bánh thích hợp dùng trong các buổi trà chiều hoặc làm quà.",
-                thanhPhan: "Phô mai, trứng gà, sữa tươi, kem tươi, bột mì và đường.",
-                anh: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=900&q=80",
-                danhGia1: "★★★★★ Thu Trang: Bánh béo thơm.",
-                danhGia2: "★★★★☆ Đức Anh: Vị phô mai rõ.",
-                danhGia3: "★★★★★ Mỹ Linh: Bánh mềm, ngon."
-            },
-
-            6: {
-                ten: "Bánh tiramisu",
-                gia: [150000, 220000, 320000],
-                danhGia: " (4.7) | Đã bán 75+",
-                moTa: "Bánh tiramisu kết hợp lớp bánh mềm với kem mịn và hương cà phê đặc trưng. Bánh có vị thơm béo, phù hợp với người yêu thích món tráng miệng kiểu Ý.",
-                thanhPhan: "Bánh bông lan, cà phê, phô mai mascarpone, trứng, kem tươi và cacao.",
-                anh: "https://images.unsplash.com/photo-1571115177098-24ec42ed204d?auto=format&fit=crop&w=900&q=80",
-                danhGia1: "★★★★★ Phương Thảo: Kem mịn, thơm cà phê.",
-                danhGia2: "★★★★☆ Tuấn Kiệt: Bánh ngon, vị vừa.",
-                danhGia3: "★★★★★ Ngọc Hân: Rất đáng thử."
-            },
-
-            7: {
-                ten: "Cupcake",
-                gia: [120000, 180000, 250000],
-                danhGia: " (4.4) | Đã bán 60+",
-                moTa: "Cupcake là những chiếc bánh nhỏ xinh với cốt bánh mềm và lớp kem trang trí đẹp mắt. Phù hợp cho tiệc sinh nhật, tiệc trà và quà tặng.",
-                thanhPhan: "Bột mì, trứng gà, sữa tươi, bơ, đường và kem trang trí.",
-                anh: "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=900&q=80",
-                danhGia1: "★★★★★ Khánh Vy: Bánh nhỏ xinh.",
-                danhGia2: "★★★★☆ Gia Huy: Kem thơm, bánh mềm.",
-                danhGia3: "★★★★☆ Mai Phương: Phù hợp làm quà."
-            },
-
-            8: {
-                ten: "Bánh su kem",
-                gia: [100000, 160000, 230000],
-                danhGia: " (4.3) | Đã bán 55+",
-                moTa: "Bánh su kem có lớp vỏ mềm nhẹ, bên trong là phần nhân kem béo mịn. Bánh thích hợp làm món ăn nhẹ hoặc dùng trong các buổi tiệc.",
-                thanhPhan: "Bột mì, trứng gà, bơ, sữa tươi, kem sữa và đường.",
-                anh: "https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=900&q=80",
-                danhGia1: "★★★★★ Minh Thư: Nhân kem thơm.",
-                danhGia2: "★★★★☆ Quốc Khánh: Bánh mềm, dễ ăn.",
-                danhGia3: "★★★★☆ Ngọc Trâm: Phù hợp ăn nhẹ."
-            }
-        };
-
-        let thamSo = new URLSearchParams(window.location.search);
-        let maBanh = thamSo.get("id");
-
-        if (!danhSachBanh[maBanh]) {
-            window.location.href = "danh-sach-banh.html";
-        } else {
-            banhHienTai = danhSachBanh[maBanh];
-            hienThiBanh();
-        }
-
-        function hienThiBanh() {
-            document.title = banhHienTai.ten + " - SweetCake";
-
-            document.getElementById("tenBanh").innerText = banhHienTai.ten;
-            document.getElementById("duongDan").innerText = banhHienTai.ten;
-            document.getElementById("tenBanhMoTa").innerText = banhHienTai.ten;
-
-            document.getElementById("anhBanh").src = banhHienTai.anh;
-            document.getElementById("anhBanh").alt = banhHienTai.ten;
-
-            document.getElementById("danhGiaNgan").innerText = banhHienTai.danhGia;
-            document.getElementById("moTaNgan").innerText = banhHienTai.moTa;
-            document.getElementById("thanhPhanNgan").innerText = banhHienTai.thanhPhan;
-
-            document.getElementById("moTaChiTiet").innerText = banhHienTai.moTa;
-            document.getElementById("thanhPhanChiTiet").innerText = banhHienTai.thanhPhan;
-
-            document.getElementById("danhGia1").innerText = banhHienTai.danhGia1;
-            document.getElementById("danhGia2").innerText = banhHienTai.danhGia2;
-            document.getElementById("danhGia3").innerText = banhHienTai.danhGia3;
-
-            capNhatTongTien();
-        }
-
-        function thayDoiSoLuong(giaTri) {
-            soLuong = soLuong + giaTri;
-
-            if (soLuong < 1) {
-                soLuong = 1;
+            if (currentQuantity < 1) {
+                currentQuantity = 1;
             }
 
-            document.getElementById("soLuong").innerText = soLuong;
-            capNhatTongTien();
+            quantity.value = currentQuantity;
         }
 
-        function capNhatTongTien() {
-            let kichThuoc = Number(document.getElementById("kichThuoc").value);
-            let gia = banhHienTai.gia[kichThuoc];
-            let tongTien = gia * soLuong;
+        // Thêm bánh vào giỏ hàng
+        function addToCart() {
+            let quantity = Number(document.getElementById('quantity').value);
 
-            document.getElementById("giaBanh").innerText =
-                gia.toLocaleString("vi-VN") + "đ";
+            if (quantity < 1 || !Number.isInteger(quantity)) {
+                alert('Vui lòng nhập số lượng hợp lệ!');
+                return;
+            }
 
-            document.getElementById("tongTien").innerText =
-                tongTien.toLocaleString("vi-VN") + "đ";
-        }
-
-        document.getElementById("kichThuoc").addEventListener("change", function() {
-            capNhatTongTien();
-        });
-
-        function themVaoGioHang() {
-            document.getElementById("thongBao").innerText =
-                "Đã thêm " + soLuong + " " + banhHienTai.ten +
-                " vào giỏ hàng!";
+            alert('Đã thêm ' + quantity + ' Pink Celebration Cake vào giỏ hàng!');
         }
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="../index.html">
+                    SweetCake
+                </a>
+
+                <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarMenu">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html">Trang chủ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="danh-sach-banh.html">Sản phẩm</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html#gioithieu">Giới thiệu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html#lienhe">Liên hệ</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- CHI TIẾT SẢN PHẨM -->
+    <main class="container">
+
+        <div class="product-detail">
+            <div class="row g-4">
+
+                <!-- HÌNH ẢNH -->
+                <div class="col-md-6">
+                    <img src="../../img/birthday.jfif"
+                        alt="Pink Celebration Cake" class="product-image">
+                </div>
+
+                <!-- THÔNG TIN -->
+                <div class="col-md-6">
+                    <h2 class="product-title">Pink Celebration Cake</h2>
+
+                    <p class="text-warning mb-2">
+                        ★★★★★
+                        <span class="text-muted">(5.0 - 12 đánh giá)</span>
+                    </p>
+
+                    <p class="product-price">450.000đ</p>
+
+                    <p>
+                        Pink Celebration Cake là chiếc bánh kem với thiết kế
+                        màu hồng nhẹ nhàng, phù hợp cho các buổi sinh nhật,
+                        kỷ niệm và những dịp đặc biệt.
+                    </p>
+
+                    <p><strong>Loại bánh:</strong> Bánh kem</p>
+                    <p><strong>Kích thước:</strong> 18cm</p>
+                    <p><strong>Hương vị:</strong> Vani và dâu</p>
+                    <p><strong>Tình trạng:</strong> Còn hàng</p>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Số lượng:</label>
+
+                        <div class="input-group quantity-box">
+                            <button class="btn btn-outline-secondary"
+                                onclick="changeQuantity(-1)">-</button>
+
+                            <input type="number" id="quantity"
+                                class="form-control text-center" value="1" min="1">
+
+                            <button class="btn btn-outline-secondary"
+                                onclick="changeQuantity(1)">+</button>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-cart" onclick="addToCart()">
+                        Thêm vào giỏ hàng
+                    </button>
+
+                    <a href="danh-sach-banh.html"
+                        class="btn btn-outline-secondary ms-2">
+                        Quay lại
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- THÔNG TIN CHI TIẾT -->
+        <div class="mt-5 mb-5">
+
+            <ul class="nav nav-tabs" id="productTab">
+                <li class="nav-item">
+                    <button class="nav-link active" data-bs-toggle="tab"
+                        data-bs-target="#description">
+                        Mô tả sản phẩm
+                    </button>
+                </li>
+
+                <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="tab"
+                        data-bs-target="#ingredients">
+                        Thành phần
+                    </button>
+                </li>
+
+                <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="tab"
+                        data-bs-target="#reviews">
+                        Đánh giá
+                    </button>
+                </li>
+            </ul>
+
+            <div class="tab-content detail-content">
+
+                <!-- MÔ TẢ -->
+                <div class="tab-pane fade show active" id="description">
+                    <h5>Thông tin sản phẩm</h5>
+                    <p>
+                        Pink Celebration Cake được trang trí bằng lớp kem
+                        mềm mịn cùng màu sắc nhẹ nhàng. Bánh thích hợp để
+                        làm quà tặng hoặc sử dụng trong các buổi tiệc.
+                    </p>
+                </div>
+
+                <!-- THÀNH PHẦN -->
+                <div class="tab-pane fade" id="ingredients">
+                    <h5>Thành phần bánh</h5>
+                    <ul>
+                        <li>Bột mì</li>
+                        <li>Trứng gà</li>
+                        <li>Sữa tươi</li>
+                        <li>Đường</li>
+                        <li>Kem tươi</li>
+                        <li>Hương vani</li>
+                        <li>Dâu tây</li>
+                    </ul>
+                </div>
+
+                <!-- ĐÁNH GIÁ -->
+                <div class="tab-pane fade" id="reviews">
+                    <h5>Đánh giá sản phẩm</h5>
+
+                    <div class="border-bottom py-2">
+                        <strong>Nguyễn Minh Anh</strong>
+                        <p class="text-warning mb-1">★★★★★</p>
+                        <p>Bánh đẹp, vị ngọt vừa phải và rất ngon.</p>
+                    </div>
+
+                    <div class="border-bottom py-2">
+                        <strong>Trần Hoàng</strong>
+                        <p class="text-warning mb-1">★★★★★</p>
+                        <p>Bánh được trang trí đẹp, giao hàng cẩn thận.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <p class="mb-1">SweetCake - Tiệm bánh ngọt</p>
+        <p class="mb-0">Mang đến những chiếc bánh thơm ngon và chất lượng.</p>
+    </footer>
+
 </body>
 </html>
