@@ -6,357 +6,184 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>SweetE's Bakery</title>
-
-    <!-- Bootstrap 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Bootstrap Icons -->
+    <link href="../CSS/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../CSS/styles.css">
 </head>
-
 <body>
-
     <div class="container-fluid p-0">
-
         <!-- =====================================
              1. NAVBAR
         ====================================== -->
         <nav class="navbar navbar-expand-xxl bg-body-tertiary">
             <div class="container-fluid px-4">
-
-                <!-- Logo -->
-                <a class="navbar-brand" href="index.html">
-                    <img src="../img/logo.png" alt="SweetE's Bakery">
-                </a>
-
-                <!-- Tên thương hiệu -->
-                <a class="navbar-brand sweete" href="index.html">
-                    SweetE's Bakery
-                </a>
-
-                <!-- Nút menu trên màn hình nhỏ -->
+                <a class="navbar-brand" href="index.html"><img src="../img/logo.png" alt="SweetE's Bakery"></a>
+                <a class="navbar-brand sweete" href="index.html">SweetE's Bakery</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Mở menu">
-
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Nội dung Navbar -->
+                    aria-expanded="false" aria-label="Mở menu"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                    <!-- Menu -->
                     <ul class="navbar-nav me-auto mb-2 mb-xxl-0">
-
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="index.html">
-                                Cửa Hàng
-                            </a>
-                        </li>
-
-                        <!-- Dropdown -->
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Cửa Hàng</a></li>
                         <li class="nav-item dropdown">
-
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Menu Bánh
-                            </a>
-
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Menu Bánh</a>
                             <ul class="dropdown-menu">
-                                <li>
-                                    <a class="dropdown-item" href="#">
-                                        Bánh Kem
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a class="dropdown-item" href="#">
-                                        Cupcake
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a class="dropdown-item" href="#">
-                                        Cookies
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a class="dropdown-item" href="#">
-                                        Cake Pops
-                                    </a>
-                                </li>
+                                <li><a class="dropdown-item" href="sanpham.html?cat=banhkem">Bánh Kem</a></li>
+                                <li><a class="dropdown-item" href="sanpham.html?cat=cupcake">Cupcake</a></li>
+                                <li><a class="dropdown-item" href="sanpham.html?cat=cookies">Cookies</a></li>
+                                <li><a class="dropdown-item" href="sanpham.html?cat=cakepop">Cake Pops</a></li>
                             </ul>
                         </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                Tin Tức
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="lienhe.html">
-                                Liên hệ
-                            </a>
-                        </li>
+                        <li class="nav-item"><a class="nav-link" href="sanpham.html">Sản phẩm</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#lienhe">Liên hệ</a></li>
                     </ul>
-
-                    <!-- Search Box -->
-                    <form class="d-flex search-box" role="search">
-
-                        <input class="form-control me-2" type="search" placeholder="Tìm kiếm" aria-label="Tìm kiếm">
-
-                        <button class="btn btn-outline-success" type="submit">
-                            Search
-                        </button>
+                    <form class="d-flex search-box" role="search" action="sanpham.html" method="get">
+                        <input class="form-control me-2" type="search" name="q" placeholder="Tìm kiếm bánh" aria-label="Tìm kiếm" maxlength="50">
+                        <button class="btn btn-outline-success" type="submit">Tìm kiếm</button>
                     </form>
-
-                    <!-- Giỏ hàng và đăng nhập -->
                     <div class="user-actions d-flex align-items-center">
-
-                        <!-- Giỏ hàng -->
-                        <a href="giohang.html" class="cart-icon" aria-label="Giỏ hàng">
-
-                            <i class="bi bi-cart3"></i>
-                        </a>
-
-                        <!-- Đăng nhập -->
-                        <a href="dangnhap.html" class="btn-login">
-
-                            <i class="bi bi-box-arrow-in-right"></i>
-                            Đăng nhập
-                        </a>
-
+                        <a href="gio-hang.html" class="cart-icon" aria-label="Giỏ hàng"><i class="bi bi-cart3"></i><span id="cartBadge" class="cart-badge d-none">0</span></a>
+                        <div id="authArea"><a href="dangnhap.html" class="btn-login"><i class="bi bi-box-arrow-in-right"></i> Đăng nhập</a></div>
                     </div>
                 </div>
             </div>
         </nav>
-
-
         <!-- =====================================
              2. BANNER
         ====================================== -->
         <header class="banner">
-
             <!-- Hình bên trái -->
             <img src="../img/hero_cake_pops.png" class="banner-left" alt="Cake Pops" fetchpriority="high">
-
             <!-- Nội dung giữa -->
             <div class="banner-content">
-
                 <h1>For Life's Sweet Moments</h1>
-
                 <p>
                     Những món tráng miệng tinh tế<br>
                     Truyền Thống - Thân Thuộc - Sang Trọng<br>
                     Giao hàng toàn quốc
                 </p>
-
                 <a href="#best-sellers" class="btn-shop">
                     <b>Đặt ngay</b>
                 </a>
             </div>
-
             <!-- Hình bên phải -->
             <img src="../img/hero_rainbow_cake.png" class="banner-right" alt="Rainbow Cake">
-
         </header>
-
-
-        <!-- =====================================
-             3. HIỆU ỨNG GỢN SÓNG
-        ====================================== -->
-        <div class="wave-divider" aria-hidden="true">
-
-            <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M0 50 Q144 -20 288 50 Q432 120 576 50 Q720 -20 864 50 Q1008 120 1152 50 Q1296 -20 1440 50 L1440 100 L0 100 Z"
-                    fill="#e5cff5" />
-            </svg>
-        </div>
-
-
         <!-- =====================================
              4. DANH MỤC BÁNH
         ====================================== -->
         <section class="category-section">
-
             <div class="container-fluid">
-
                 <div class="row justify-content-around text-center g-4">
-
                     <!-- Cakes -->
                     <div class="col-6 col-md">
-
-                        <a href="#" class="category-item">
-
+                        <a href="sanpham.html?cat=banhkem" class="category-item">
                             <img src="../img/cake.jpg" alt="Cakes">
-
                             <p>Cakes</p>
                         </a>
                     </div>
-
                     <!-- Cupcakes -->
                     <div class="col-6 col-md">
-
-                        <a href="#" class="category-item">
-
+                        <a href="sanpham.html?cat=cupcake" class="category-item">
                             <img src="../img/cupcake.jfif" alt="Cupcakes">
-
                             <p>Cupcakes</p>
                         </a>
                     </div>
-
                     <!-- Cookies -->
                     <div class="col-6 col-md">
-
-                        <a href="#" class="category-item">
-
+                        <a href="sanpham.html?cat=cookies" class="category-item">
                             <img src="../img/cookies.jfif" alt="Cookies">
-
                             <p>Cookies</p>
                         </a>
                     </div>
-
                     <!-- Cake Pops -->
                     <div class="col-6 col-md">
-
-                        <a href="#" class="category-item">
-
+                        <a href="sanpham.html?cat=cakepop" class="category-item">
                             <img src="../img/cakepop.png" alt="Cake Pops">
-
                             <p>Cake Pops</p>
                         </a>
                     </div>
-
                 </div>
             </div>
         </section>
-
-
         <!-- =====================================
              5. OUR BEST SELLERS
         ====================================== -->
         <section class="best-sellers" id="best-sellers">
-
             <div class="container-fluid px-4">
-
                 <!-- Tiêu đề -->
                 <div class="best-sellers-header">
-
                     <div class="best-sellers-title">
                         <span class="section-label">
                             THE BAKERY COLLECTION
                         </span>
-
                         <h2>Our Best Sellers</h2>
-
                         <p>
                             Tuyển chọn những hương vị ngọt ngào nhất
                         </p>
                     </div>
-
                     <a href="sanpham.html" class="view-all">
                         View All
                         <i class="bi bi-arrow-right"></i>
                     </a>
-
                 </div>
-
-
                 <!-- Danh sách sản phẩm -->
                 <div class="row g-4">
-
                     <!-- Sản phẩm 1 -->
                     <div class="col-6 col-lg-3">
-
                         <div class="product-card">
-
                             <div class="product-image">
-
                                 <img src="../img/birthday.jfif" alt="Pink Celebration Cake" loading="lazy">
-
                                 <span class="product-badge">
-                                    Get $5 Off
+                                    Ưu đãi
                                 </span>
                             </div>
-
-                            <h5>Pink Celebration Cake</h5>
-
+                            <h5><a href="chi-tiet-banh.html?id=p1">Pink Celebration Cake</a></h5>
                             <p class="price">450.000đ</p>
-
-                            <a href="#" class="btn-buy">
+                            <a href="#" class="btn-buy" data-buy="p1">
                                 Đặt mua
                             </a>
                         </div>
                     </div>
-
-
                     <!-- Sản phẩm 2 -->
                     <div class="col-6 col-lg-3">
-
                         <div class="product-card">
-
                             <div class="product-image">
-
                                 <img src="../img/cakesale.jfif" alt="Confetti Cake" loading="lazy">
 
                                 <span class="product-badge">
                                     Best Seller
                                 </span>
                             </div>
-
-                            <h5>Confetti Cake</h5>
-
+                            <h5><a href="chi-tiet-banh.html?id=p2">Confetti Cake</a></h5>
                             <p class="price">390.000đ</p>
-
-                            <a href="#" class="btn-buy">
+                            <a href="#" class="btn-buy" data-buy="p2">
                                 Đặt mua
                             </a>
                         </div>
                     </div>
-
-
                     <!-- Sản phẩm 3 -->
                     <div class="col-6 col-lg-3">
-
                         <div class="product-card">
-
                             <div class="product-image">
-
                                 <img src="../img/cupcakebox.jfif" alt="Cupcake Box" loading="lazy">
                             </div>
-
-                            <h5>Cupcake Box</h5>
-
+                            <h5><a href="chi-tiet-banh.html?id=p3">Cupcake Box</a></h5>
                             <p class="price">250.000đ</p>
-
-                            <a href="#" class="btn-buy">
+                            <a href="#" class="btn-buy" data-buy="p3">
                                 Đặt mua
                             </a>
                         </div>
                     </div>
-
-
                     <!-- Sản phẩm 4 -->
                     <div class="col-6 col-lg-3">
-
                         <div class="product-card">
-
                             <div class="product-image">
-
                                 <img src="../img/rosecake.jfif" alt="Rose Cake" loading="lazy">
                             </div>
-
-                            <h5>Rose Cake</h5>
-
+                            <h5><a href="chi-tiet-banh.html?id=p4">Rose Cake</a></h5>
                             <p class="price">420.000đ</p>
-
-                            <a href="#" class="btn-buy">
+                            <a href="#" class="btn-buy" data-buy="p4">
                                 Đặt mua
                             </a>
                         </div>
@@ -365,142 +192,52 @@
                 </div>
             </div>
         </section>
-
-
         <!-- =====================================
              6. FOOTER
         ====================================== -->
-        <footer class="footer">
-
+        <footer class="footer" id="lienhe">
             <div class="container-fluid px-4">
-
                 <div class="row g-3">
-
-                    <!-- CỘT 1: THƯƠNG HIỆU -->
                     <div class="col-12 col-md-6 col-lg-3">
-
                         <div class="footer-brand">
-
                             <img src="../img/logo.png" alt="SweetE's Bakery">
-
                             <p>For Life's Sweet Moments</p>
-
-                            <!-- Mạng xã hội -->
-                            <div class="footer-social">
-
-                                <a href="#">Facebook</a>
-                                <a href="#">Instagram</a>
-                                <a href="#">TikTok</a>
-                                <a href="#">Zalo</a>
-
-                            </div>
+                            <div class="footer-social"><a href="#">Facebook</a><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">Zalo</a></div>
                         </div>
                     </div>
-
-
-                    <!-- CỘT 2: LIÊN KẾT -->
                     <div class="col-12 col-md-6 col-lg-3">
-
                         <h4>Liên kết</h4>
-
                         <ul class="footer-links">
-
-                            <li>
-                                <a href="index.html">Trang chủ</a>
-                            </li>
-
-                            <li>
-                                <a href="sanpham.html">Sản phẩm</a>
-                            </li>
-
-                            <li>
-                                <a href="cuahang.html">Cửa hàng</a>
-                            </li>
-
-                            <li>
-                                <a href="tintuc.html">Tin tức</a>
-                            </li>
-
-                            <li>
-                                <a href="faq.html">FAQ</a>
-                            </li>
-
+                            <li><a href="index.html">Trang chủ</a></li>
+                            <li><a href="sanpham.html">Sản phẩm</a></li>
                         </ul>
                     </div>
-
-
-                    <!-- CỘT 3: TÀI KHOẢN -->
                     <div class="col-12 col-md-6 col-lg-3">
-
                         <h4>Tài khoản</h4>
-
                         <ul class="footer-links">
-
-                            <li>
-                                <a href="dangnhap.html">
-                                    Đăng nhập
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="dangky.html">
-                                    Đăng ký thành viên
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="giohang.html">
-                                    Giỏ hàng
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#">
-                                    Ưu đãi thành viên
-                                </a>
-                            </li>
-
+                            <li><a href="dangnhap.html">Đăng nhập</a></li>
+                            <li><a href="dangky.html">Đăng ký thành viên</a></li>
+                            <li><a href="gio-hang.html">Giỏ hàng</a></li>
+                            <li><a href="don-hang.html">Đơn hàng của tôi</a></li>
                         </ul>
                     </div>
-
-
-                    <!-- CỘT 4: LIÊN HỆ -->
                     <div class="col-12 col-md-6 col-lg-3">
-
                         <h4>Liên hệ</h4>
-
                         <div class="footer-contact">
-
-                            <p>
-                                Địa chỉ: [Địa chỉ cửa hàng]
-                            </p>
-
-                            <p>
-                                Hotline: [Số điện thoại]
-                            </p>
-
-                            <p>
-                                Email: [Email liên hệ]
-                            </p>
-
-                            <p>
-                                Giờ mở cửa: 8:00 - 22:00
-                            </p>
-
+                            <p>Địa chỉ: [Địa chỉ cửa hàng]</p>
+                            <p>Hotline: [Số điện thoại]</p>
+                            <p>Email: [Email liên hệ]</p>
+                            <p>Giờ mở cửa: 8:00 - 22:00</p>
                         </div>
                     </div>
-
                 </div>
             </div>
         </footer>
 
     </div>
-
-
-    <!-- Bootstrap JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
-    </script>
-
+    <script src="../JS/bootstrap.bundle.min.js"> </script>
+    <script src="../JS/regex.js"></script>
+    <script src="../JS/main.js"></script>
 </body>
 
 </html>

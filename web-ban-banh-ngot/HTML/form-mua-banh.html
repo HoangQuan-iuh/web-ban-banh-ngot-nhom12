@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Đặt bánh - SweetE's Bakery</title>
+    <link href="../CSS/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/styles.css">
+</head>
+<body>
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-xxl bg-body-tertiary">
+            <div class="container-fluid px-4">
+                <a class="navbar-brand" href="index.html"><img src="../img/logo.png" alt="SweetE's Bakery"></a>
+                <a class="navbar-brand sweete" href="index.html">SweetE's Bakery</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Mở menu"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-xxl-0">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Cửa Hàng</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Menu Bánh</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="sanpham.html?cat=banhkem">Bánh Kem</a></li>
+                                <li><a class="dropdown-item" href="sanpham.html?cat=cupcake">Cupcake</a></li>
+                                <li><a class="dropdown-item" href="sanpham.html?cat=cookies">Cookies</a></li>
+                                <li><a class="dropdown-item" href="sanpham.html?cat=cakepop">Cake Pops</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="sanpham.html">Sản phẩm</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#lienhe">Liên hệ</a></li>
+                    </ul>
+                    <form class="d-flex search-box" role="search" action="sanpham.html" method="get">
+                        <input class="form-control me-2" type="search" name="q" placeholder="Tìm kiếm bánh" aria-label="Tìm kiếm" maxlength="50">
+                        <button class="btn btn-outline-success" type="submit">Tìm kiếm</button>
+                    </form>
+                    <div class="user-actions d-flex align-items-center">
+                        <a href="gio-hang.html" class="cart-icon" aria-label="Giỏ hàng"><i class="bi bi-cart3"></i><span id="cartBadge" class="cart-badge d-none">0</span></a>
+                        <div id="authArea"><a href="dangnhap.html" class="btn-login"><i class="bi bi-box-arrow-in-right"></i> Đăng nhập</a></div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <main class="page-main">
+<div class="container"><h1 class="page-title">Thông tin đặt bánh</h1>
+<div class="row g-4" id="orderRow">
+  <div class="col-lg-7"><div class="panel"><form id="orderForm" novalidate>
+    <div class="row g-3">
+      <div class="col-md-6"><label class="form-label" for="name">Họ và tên người nhận</label><input id="name" name="name" class="form-control" maxlength="50"><div class="invalid-feedback" id="loi-name"></div></div>
+      <div class="col-md-6"><label class="form-label" for="phone">Số điện thoại</label><input type="tel" id="phone" name="phone" class="form-control" maxlength="15"><div class="invalid-feedback" id="loi-phone"></div></div>
+      <div class="col-12"><label class="form-label" for="email">Email</label><input type="email" id="email" name="email" class="form-control" maxlength="100"><div class="invalid-feedback" id="loi-email"></div></div>
+      <div class="col-12"><label class="form-label" for="address">Địa chỉ giao hàng</label><input id="address" name="address" class="form-control" maxlength="150" placeholder="Số nhà, đường, phường/xã, quận/huyện, tỉnh/thành"><div class="invalid-feedback" id="loi-address"></div></div>
+      <div class="col-md-6"><label class="form-label" for="date">Ngày nhận bánh</label><input type="date" id="date" name="date" class="form-control"><div class="invalid-feedback" id="loi-date"></div></div>
+      <div class="col-md-6"><label class="form-label" for="time">Khung giờ nhận</label><select id="time" name="time" class="form-select"><option value="">Chọn khung giờ</option><option>08:00 - 12:00</option><option>12:00 - 17:00</option><option>17:00 - 21:00</option></select><div class="invalid-feedback" id="loi-time"></div></div>
+      <div class="col-12"><label class="form-label" for="cakeText">Chữ viết lên bánh (không bắt buộc)</label><input id="cakeText" name="cakeText" class="form-control" maxlength="40" placeholder="Ví dụ: Happy Birthday Mai"><div class="invalid-feedback" id="loi-cakeText"></div></div>
+      <div class="col-12"><label class="form-label" for="note">Ghi chú (không bắt buộc)</label><textarea id="note" name="note" class="form-control" rows="3" maxlength="200"></textarea><div class="invalid-feedback" id="loi-note"></div></div>
+      <div class="col-12"><div class="form-label">Thanh toán</div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="pay" id="payCod" value="Thanh toán khi nhận bánh" checked><label class="form-check-label" for="payCod">Thanh toán khi nhận bánh</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="pay" id="payBank" value="Chuyển khoản"><label class="form-check-label" for="payBank">Chuyển khoản</label></div></div>
+    </div>
+    <button class="btn-pink w-100 mt-4" type="submit">Xác nhận đặt bánh</button>
+  </form></div></div>
+  <div class="col-lg-5"><div class="panel" id="summary"></div></div>
+</div></div>
+        </main>
+        <footer class="footer" id="lienhe">
+            <div class="container-fluid px-4">
+                <div class="row g-3">
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="footer-brand">
+                            <img src="../img/logo.png" alt="SweetE's Bakery">
+                            <p>For Life's Sweet Moments</p>
+                            <div class="footer-social"><a href="#">Facebook</a><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">Zalo</a></div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <h4>Liên kết</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Trang chủ</a></li>
+                            <li><a href="sanpham.html">Sản phẩm</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <h4>Tài khoản</h4>
+                        <ul class="footer-links">
+                            <li><a href="dangnhap.html">Đăng nhập</a></li>
+                            <li><a href="dangky.html">Đăng ký thành viên</a></li>
+                            <li><a href="gio-hang.html">Giỏ hàng</a></li>
+                            <li><a href="don-hang.html">Đơn hàng của tôi</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <h4>Liên hệ</h4>
+                        <div class="footer-contact">
+                            <p>Địa chỉ: [Địa chỉ cửa hàng]</p>
+                            <p>Hotline: [Số điện thoại]</p>
+                            <p>Email: [Email liên hệ]</p>
+                            <p>Giờ mở cửa: 8:00 - 22:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="../JS/bootstrap.bundle.min.js"></script>
+    <script src="../JS/regex.js"></script>
+    <script src="../JS/main.js"></script>
+    <script src="../JS/formmuabanh.js"></script>
+</body>
+</html>
